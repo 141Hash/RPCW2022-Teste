@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  h1 Classe #{classe.codigo} - Nível #{classe.nivel}
+
+  table.w3-table-all
+   tr
+    th Título 
+    th Código 
+    tr 
+     td= classe.titulo
+     td= classe.codigo
+
+  h2 Descendentes:
+  if classe.filhos.length > 0
+   table.w3-table-all 
+    tr 
+     th Título 
+     th Código 
+     each d in classe.filhos
+      tr 
+       td= d.titulo 
+       td
+        a(href='/classes/' + d.codigo)= d.codigo
+  else
+    h2 Sem informação a ser apresentada 
+  
+
+  h2 Termos de Índice:
+  if classe.nivel == 3
+   if classe.termosInd.length > 0
+   table.w3-table-all
+    tr 
+     th Termo
+     each d in classe.termosInd
+      tr 
+       td
+        a(href='/termosIndice')= d.termo
+  else 
+     h2 Sem informação a ser apresentada    
+
+
+  p
+   a(href='/') Voltar à Home Page

@@ -1,0 +1,33 @@
+Teste RPCW 2022
+
+Nome: André Carvalho da Cunha Martins
+Número: PG47009
+
+Exercício 1:
+
+Perante o ficheiro JSON que foi disponibilizado, decidi dividir o mesmo em 2 ficheiros JSON diferentes, um que tinha informações
+acerca das cidades e outro que tinha informações acerca das ligações entre as mesmas.
+
+Uma vez que os dados iriam ser guardados numa base de dados MongoDB, executei a seguinte ordem de comandos para guardar os mesmos
+Nota: Utilizo o MongoDB recorrendo ao uso de Docker
+
+1 - sudo docker start mymongo     
+2 - sudo docker cp ligacoes.json mymongo:/tmp/ligacoes.json
+3 - sudo docker cp cidades.json mymongo:/tmp/cidades.json 
+4 - sudo docker exec mymongo mongoimport -d MAPA2022 -c ligacoes /tmp/ligacoes.json --jsonArray
+5 - sudo docker exec mymongo mongoimport -d MAPA2022 -c cidades /tmp/cidades.json --jsonArray
+
+Guardando, assim, os dados em 2 coleções da base de dados MAPA2022.
+
+De seguida desenvolvi um servidor nodejs que dá suporte a todos os pedidos que foram propostos. O servidor corre na porta 3031.
+
+Exercício 2:
+
+Primeiro, obtive um token para ter acesso à informação da API CLAV que era pretendida, através de um POST, com as credenciais fornecidas,
+para o link http://clav-api.di.uminho.pt/v2/users/login.
+
+De seguida respondi às perguntas feitas para testar a API, estando as respostas dentro da diretoria Ex2 no ficheiro testeAPI.txt
+
+Posto isto, desenvolvi a aplicação pretendida, estando a mesma a correr na porta 3040.
+
+

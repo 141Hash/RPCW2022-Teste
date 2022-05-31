@@ -1,0 +1,19 @@
+
+extends layout
+
+block content
+  h1 Classes de Nível 1
+
+  table.w3-table-all
+   tr
+    th Título 
+    th Código 
+
+   each classe in classesN1
+    tr 
+     td= classe.titulo
+     td
+      a(href='/classes/' + classe.codigo)= classe.codigo
+
+  p
+   a(href='/') Voltar à Home Page

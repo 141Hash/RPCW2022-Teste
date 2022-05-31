@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1 Termos de Índice
+
+  table.w3-table-all
+    tr 
+      th Termo
+      th Classe ID 
+      th Título
+
+    each d in termos
+      tr 
+        td= d.termo 
+        td
+         a(href= '/classes/' + d.idClasse)= d.idClasse
+        td= d.tituloClasse
+  p
+   a(href='/') Voltar à Home Page
